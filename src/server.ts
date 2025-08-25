@@ -9,7 +9,7 @@ import { Application, ApplicationWithScore, Search } from './search';
  * Server class.
  */
 export class Server {
-  public static model = "o3-mini";
+  public static model = "gpt-4o-mini";
 
   public openAi: OpenAI;
 
