@@ -109,7 +109,7 @@ export class Server {
       - The user has searched saorsail.com for an app
       - You have found ${searchResults.length} apps
       - Provide a markdown list of links
-      - Each link should be in the format http://localhost:4200/app/NAMESPACE
+      - Each link should be in the format https://www.saorsail.com/app/NAMESPACE
       - NAMESPACE can be found as a property of each object in the following JSON object array
       - JSON: ${resultsJson}
       - Return 5 results max
