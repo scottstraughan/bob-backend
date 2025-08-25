@@ -9,6 +9,8 @@ import { Application, ApplicationWithScore, Search } from './search';
  * Server class.
  */
 export class Server {
+  public static model = "o3-mini";
+
   public openAi: OpenAI;
 
   /**
@@ -117,7 +119,7 @@ export class Server {
     }
 
     const response = this.openAi.responses.create({
-      model: "gpt-4o-mini",
+      model: Server.model,
       input: userMessage,
       store: false,
       instructions: instructions,
