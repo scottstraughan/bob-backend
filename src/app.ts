@@ -2,7 +2,7 @@ import express from "express";
 import cors from 'cors';
 import OpenAI from "openai";
 
-const apiKey = process.env.API_KEY;
+const apiKey = process.env.OPENAI_API_TOKEN;
 
 if (!apiKey) {
     console.error("OpenAI API key is not set!");
