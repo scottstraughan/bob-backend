@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "tsc",
-    "start": "nodemon src/app.ts",
+    "start": "node src/app.ts",
     "dev": "nodemon --exec ts-node src/app.ts",
     "dev:watch": "nodemon src/app.ts",
     "clean": "rm -rf dist"
