@@ -11,6 +11,10 @@ Bob is powered by 3 core bits of functionality.
 2. [Embedding Layer](https://github.com/scottstraughan/saorsail-popular-db/blob/main/src/embeddings/__init__.py) (generated on database updates)
 3. [ngx-bob](https://github.com/scottstraughan/ngx-bob)
 
+## Notes
+
+- Bob's Brain is hosted on render.com
+
 ## TODO
 
 Lots! 
