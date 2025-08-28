@@ -32,16 +32,7 @@ export class OpenAIBot implements Bots {
   async speak(
     message: string
   ): Promise<BotResponse> {
-    return new Promise<BotResponse>((resolve, reject) => {
-      const response = this.sendRequest(message, generalInstructions);
-
-      response.then((result) => resolve({
-        response: result.output_text
-      }));
-
-      response.catch((error) =>
-        reject(error))
-    });
+    return this.sendRequest(message, generalInstructions);
   }
 
   /**
@@ -51,20 +42,11 @@ export class OpenAIBot implements Bots {
     message: string,
     searchResults: []
   ): Promise<BotResponse> {
-    return new Promise<BotResponse>((resolve, reject) => {
-      const instructions  = searchInstructions
-        .replace('SEARCH_RESULTS_LENGTH', searchResults.length.toString())
-        .replace('JSON_SEARCH_RESULTS', JSON.stringify(searchResults))
+    const instructions = searchInstructions
+      .replace('SEARCH_RESULTS_LENGTH', searchResults.length.toString())
+      .replace('JSON_SEARCH_RESULTS', JSON.stringify(searchResults))
 
-      const response = this.sendRequest(message, instructions);
-
-      response.then((result) => resolve({
-        response: result.output_text
-      }));
-
-      response.catch((error) =>
-        reject(error))
-    });
+    return  this.sendRequest(message, instructions);
   }
 
   /**
@@ -81,14 +63,32 @@ export class OpenAIBot implements Bots {
   private sendRequest(
     message: string,
     instructions: string
-  ) {
+  ): Promise<BotResponse> {
     Logger.info(`Sending request to OpenAI using model ${this.model}.`)
 
-    return this.openAi.responses.create({
-      model: this.model,
-      input: message,
-      store: false,
-      instructions: instructions,
+    return new Promise((resolve) => {
+      const request = this.openAi.responses.create({
+        model: this.model,
+        input: message,
+        store: false,
+        instructions: instructions,
+      });
+
+      request.then((result) => {
+        Logger.info(`OpenAI response: ${result.output_text}`);
+
+        resolve({
+          response: result.output_text,
+        })
+      });
+
+      request.catch((error) => {
+        Logger.error(error);
+
+        resolve({
+          response: 'Bob is having a meltdown right now.... Please try again later.'
+        })
+      })
     });
   }
 }

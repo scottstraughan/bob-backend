@@ -76,7 +76,7 @@ export class Server {
     }
 
     const response = {
-      body: 'Not really much to say, is there?'
+      message: 'Not really much to say, is there?'
     };
 
     if (Search.isSearchQuery(requestMessage.body)) {
@@ -85,11 +85,11 @@ export class Server {
         requestMessage.body,
         await this.search.search(requestMessage.body));
 
-      response.body = searchResponse.response;
+      response.message = searchResponse.response;
     } else {
       // Handle generic questions
       const speakResponse = await bot.speak(requestMessage.body);
-      response.body = speakResponse.response;
+      response.message = speakResponse.response;
     }
 
     res.json(response);
