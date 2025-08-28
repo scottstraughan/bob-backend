@@ -1,6 +1,6 @@
-# Bob (Backend)
+# Bob Brain (Backend)
 
-The Bob backend is a simple NodeJS/ExpressJS app that interfaces with OpenAI's ChatGPT. This service allows users to 
+The Bob brain is a simple NodeJS/ExpressJS app that interfaces with OpenAI's ChatGPT. This service allows users to 
 talk to "Bob", a friendly Bot. Bob can help search for apps, download and install apps and more!
 
 ## Overview
