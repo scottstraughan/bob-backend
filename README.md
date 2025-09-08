@@ -7,9 +7,9 @@ allows users to talk to "Bob", a friendly Bot. Bob can help search for apps, dow
 
 Bob is powered by 3 core bits of functionality.
 
-1. Bob Brain (ExpressJS server/middlware)
-2. [Embedding Layer](https://github.com/scottstraughan/saorsail-popular-db/blob/main/src/embeddings/__init__.py) (generated on database updates)
-3. [ngx-bob](https://github.com/scottstraughan/ngx-bob)
+1. Bob Brain (ExpressJS server/middlware - you are here)
+2. [ngx-bob](https://github.com/scottstraughan/ngx-bob)
+3. [Embedding Layer](https://github.com/scottstraughan/saorsail-popular-db/blob/main/src/embeddings/__init__.py) (generated on database updates)
 
 ## Notes
 
